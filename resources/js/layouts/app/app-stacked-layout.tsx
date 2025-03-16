@@ -7,6 +7,7 @@ import { useTypedPage } from '@/hooks/use-typed-page';
 import { type NavItem } from '@/types';
 import AppLogo from '@/components/app-logo';
 import { UserDropdown } from '@/layouts/app/partials/user-dropdown';
+import AppearanceToggleDropdown from '@/components/appearance-dropdown';
 
 export default function AppStackedLayout({ navItems, children }: PropsWithChildren<{ navItems: NavItem[] }>) {
 	const { auth } = useTypedPage().props;
@@ -43,6 +44,9 @@ export default function AppStackedLayout({ navItems, children }: PropsWithChildr
 							aria-label='Inbox'
 						>
 							<InboxIcon />
+						</NavbarItem>
+						<NavbarItem className='group'>
+							<AppearanceToggleDropdown />
 						</NavbarItem>
 						{auth.user && <UserDropdown user={auth.user} />}
 					</NavbarSection>
