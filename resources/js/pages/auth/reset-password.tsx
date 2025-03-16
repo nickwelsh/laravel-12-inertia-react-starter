@@ -1,13 +1,11 @@
 import { Head, useForm } from '@inertiajs/react';
 import { LoaderCircle } from 'lucide-react';
-import { type ReactNode } from 'react';
-import { type FormEventHandler } from 'react';
-import InputError from '@/components/input-error';
+import { type FormEventHandler, type ReactNode } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AuthLayout from '@/layouts/auth-layout';
-import { Field, FieldGroup, Fieldset } from '@/components/catalyst/fieldset';
+import { ErrorMessage, Field, FieldGroup, Fieldset } from '@/components/catalyst/fieldset';
 
 type ResetPasswordProps = {
 	token: string;
@@ -59,7 +57,7 @@ function ResetPassword({ token, email }: ResetPasswordProps) {
 								}}
 								placeholder='Password'
 							/>
-							<InputError message={errors.password} />
+							<ErrorMessage>{errors.password}</ErrorMessage>
 						</Field>
 						<Field>
 							<Label>Confirm password</Label>
@@ -74,10 +72,7 @@ function ResetPassword({ token, email }: ResetPasswordProps) {
 								}}
 								placeholder='Confirm password'
 							/>
-							<InputError
-								message={errors.password_confirmation}
-								className='mt-2'
-							/>
+							<ErrorMessage>{errors.password_confirmation}</ErrorMessage>
 						</Field>
 						<Button
 							type='submit'

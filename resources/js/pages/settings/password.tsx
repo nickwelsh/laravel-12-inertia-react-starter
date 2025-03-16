@@ -2,10 +2,9 @@ import { Transition } from '@headlessui/react';
 import { Head, useForm } from '@inertiajs/react';
 import { type FormEventHandler, type ReactNode, useRef } from 'react';
 import { Text } from '@/components/catalyst/text';
-import InputError from '@/components/input-error';
 import SettingsLayout from '@/layouts/settings/layout';
 import { Button } from '@/components/catalyst/button';
-import { Field, FieldGroup, Fieldset, Label, Legend } from '@/components/catalyst/fieldset';
+import { ErrorMessage, Field, FieldGroup, Fieldset, Label, Legend } from '@/components/catalyst/fieldset';
 import { Input } from '@/components/catalyst/input';
 import AppLayout from '@/layouts/app-layout';
 
@@ -71,7 +70,7 @@ function Password() {
 									placeholder='Current password'
 								/>
 
-								<InputError message={errors.current_password} />
+								<ErrorMessage>{errors.current_password}</ErrorMessage>
 							</Field>
 							<Field>
 								<Label>New password</Label>
@@ -88,7 +87,7 @@ function Password() {
 									placeholder='New password'
 								/>
 
-								<InputError message={errors.password} />
+								<ErrorMessage>{errors.password}</ErrorMessage>
 							</Field>
 							<Field>
 								<Label>Confirm password</Label>
@@ -104,7 +103,7 @@ function Password() {
 									placeholder='Confirm password'
 								/>
 
-								<InputError message={errors.password_confirmation} />
+								<ErrorMessage>{errors.password_confirmation}</ErrorMessage>
 							</Field>
 							<div className='flex items-center gap-4'>
 								<Button disabled={processing}>Save password</Button>

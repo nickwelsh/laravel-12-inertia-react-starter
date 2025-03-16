@@ -2,11 +2,10 @@ import { Transition } from '@headlessui/react';
 import { Head, Link, useForm } from '@inertiajs/react';
 import { type FormEventHandler, type ReactNode } from 'react';
 import { Button } from '@/components/catalyst/button';
-import { Description, Field, FieldGroup, Fieldset, Label, Legend } from '@/components/catalyst/fieldset';
+import { Description, ErrorMessage, Field, FieldGroup, Fieldset, Label, Legend } from '@/components/catalyst/fieldset';
 import { Input } from '@/components/catalyst/input';
 import { Text } from '@/components/catalyst/text';
 import DeleteUser from '@/pages/settings/partials/delete-user';
-import InputError from '@/components/input-error';
 import SettingsLayout from '@/layouts/settings/layout';
 import AppLayout from '@/layouts/app-layout';
 import { useTypedPage } from '@/hooks/use-typed-page';
@@ -64,10 +63,7 @@ function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: boolean; status
 									placeholder='Full name'
 								/>
 
-								<InputError
-									className='mt-2'
-									message={errors.name}
-								/>
+								<ErrorMessage>{errors.name}</ErrorMessage>
 							</Field>
 
 							<Field>
@@ -104,10 +100,7 @@ function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: boolean; status
 										)}
 									</Description>
 								)}
-								<InputError
-									className='mt-2'
-									message={errors.email}
-								/>
+								<ErrorMessage>{errors.email}</ErrorMessage>
 							</Field>
 
 							<div className='flex items-center gap-4'>

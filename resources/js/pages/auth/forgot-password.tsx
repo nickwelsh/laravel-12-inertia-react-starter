@@ -1,13 +1,11 @@
 // Components
 import { Head, useForm } from '@inertiajs/react';
 import { LoaderCircle } from 'lucide-react';
-import { type ReactNode } from 'react';
-import { type FormEventHandler } from 'react';
-import InputError from '@/components/input-error';
+import { type FormEventHandler, type ReactNode } from 'react';
 import TextLink from '@/components/text-link';
 import { Button } from '@/components/catalyst/button';
 import { Input } from '@/components/catalyst/input';
-import { Field, FieldGroup, Fieldset, Label } from '@/components/catalyst/fieldset';
+import { ErrorMessage, Field, FieldGroup, Fieldset, Label } from '@/components/catalyst/fieldset';
 import AuthLayout from '@/layouts/auth-layout';
 
 function ForgotPassword({ status }: { status?: string }) {
@@ -46,7 +44,7 @@ function ForgotPassword({ status }: { status?: string }) {
 									placeholder='email@example.com'
 								/>
 
-								<InputError message={errors.email} />
+								<ErrorMessage>{errors.email}</ErrorMessage>
 							</Field>
 						</FieldGroup>
 						<div className='my-6 flex items-center justify-start'>

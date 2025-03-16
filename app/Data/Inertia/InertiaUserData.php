@@ -9,15 +9,15 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 #[TypeScript]
 class InertiaUserData extends Data
 {
-    public int $id;
+	public int $id;
 
-    public string $name;
+	public string $name;
 
-    public string $email;
+	public string $email;
 
-    public ?CarbonImmutable $emailVerifiedAt;
+	public ?CarbonImmutable $emailVerifiedAt;
 
-    public CarbonImmutable $createdAt;
+	public CarbonImmutable $createdAt;
 
-    public CarbonImmutable $updatedAt;
+	public CarbonImmutable $updatedAt;
 }

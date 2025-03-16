@@ -2,7 +2,6 @@
 
 namespace App\Data\Inertia;
 
-use Carbon\CarbonImmutable;
 use Spatie\LaravelData\Data;
 use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 

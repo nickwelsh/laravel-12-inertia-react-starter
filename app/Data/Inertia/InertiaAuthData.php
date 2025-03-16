@@ -8,5 +8,5 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 #[TypeScript]
 class InertiaAuthData extends Data
 {
-    public ?InertiaUserData $user;
+	public ?InertiaUserData $user;
 }

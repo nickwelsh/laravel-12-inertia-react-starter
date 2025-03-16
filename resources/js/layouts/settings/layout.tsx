@@ -8,17 +8,14 @@ const sidebarNavItems = [
 	{
 		label: 'Profile',
 		routeName: 'profile.edit',
-		explicit: true,
 	},
 	{
 		label: 'Password',
 		routeName: 'password.edit',
-		explicit: true,
 	},
 	{
 		label: 'Appearance',
 		routeName: 'appearance',
-		explicit: true,
 	},
 ] as const satisfies NavItem[];
 
@@ -35,11 +32,11 @@ export default function SettingsLayout({ children }: PropsWithChildren) {
 				<Subheading>Manage your profile and account settings</Subheading>
 				<Navbar className='mt-2'>
 					<NavbarSection>
-						{sidebarNavItems.map(({ label, routeName, explicit }) => (
+						{sidebarNavItems.map(({ label, routeName }) => (
 							<NavbarItem
 								key={label}
 								href={route(routeName)}
-								current={route().current(explicit ? routeName : `${routeName}.*`)}
+								current={route().current(routeName)}
 							>
 								{label}
 							</NavbarItem>

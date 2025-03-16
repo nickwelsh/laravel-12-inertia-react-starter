@@ -1,12 +1,11 @@
 import { Head, useForm } from '@inertiajs/react';
 import { LoaderCircle } from 'lucide-react';
 import { type FormEventHandler, type ReactNode } from 'react';
-import InputError from '@/components/input-error';
 import TextLink from '@/components/text-link';
 import { Button } from '@/components/catalyst/button';
 import { Checkbox } from '@/components/catalyst/checkbox';
 import { Input } from '@/components/catalyst/input';
-import { Field, FieldGroup, Fieldset, Label } from '@/components/catalyst/fieldset';
+import { ErrorMessage, Field, FieldGroup, Fieldset, Label } from '@/components/catalyst/fieldset';
 import AuthLayout from '@/layouts/auth-layout';
 
 type LoginForm = {
@@ -60,7 +59,7 @@ function Login({ status, canResetPassword }: LoginProps) {
 								}}
 								placeholder='email@example.com'
 							/>
-							<InputError message={errors.email} />
+							<ErrorMessage>{errors.email}</ErrorMessage>
 						</Field>
 						<Field>
 							<Label>Password</Label>
@@ -75,7 +74,7 @@ function Login({ status, canResetPassword }: LoginProps) {
 								}}
 								placeholder='Password'
 							/>
-							<InputError message={errors.password} />
+							<ErrorMessage>{errors.password}</ErrorMessage>
 						</Field>
 						<div className='flex items-center justify-between'>
 							<Field className='flex items-center gap-2'>

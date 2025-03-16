@@ -1,11 +1,10 @@
 import { Head, useForm } from '@inertiajs/react';
 import { LoaderCircle } from 'lucide-react';
 import { type FormEventHandler, type ReactNode } from 'react';
-import InputError from '@/components/input-error';
 import TextLink from '@/components/text-link';
 import { Button } from '@/components/catalyst/button';
 import { Input } from '@/components/catalyst/input';
-import { Field, FieldGroup, Fieldset, Label } from '@/components/catalyst/fieldset';
+import { ErrorMessage, Field, FieldGroup, Fieldset, Label } from '@/components/catalyst/fieldset';
 import AuthLayout from '@/layouts/auth-layout';
 
 type RegisterForm = {
@@ -55,10 +54,7 @@ function Register() {
 								disabled={processing}
 								placeholder='Full name'
 							/>
-							<InputError
-								message={errors.name}
-								className='mt-2'
-							/>
+							<ErrorMessage>{errors.name}</ErrorMessage>
 						</Field>
 						<Field className='mb-6'>
 							<Label>Email address</Label>
@@ -73,7 +69,7 @@ function Register() {
 								disabled={processing}
 								placeholder='email@example.com'
 							/>
-							<InputError message={errors.email} />
+							<ErrorMessage>{errors.email}</ErrorMessage>
 						</Field>
 						<Field className='mb-6'>
 							<Label>Password</Label>
@@ -88,7 +84,7 @@ function Register() {
 								disabled={processing}
 								placeholder='Password'
 							/>
-							<InputError message={errors.password} />
+							<ErrorMessage>{errors.password}</ErrorMessage>
 						</Field>
 						<Field>
 							<Label>Confirm password</Label>
@@ -103,7 +99,7 @@ function Register() {
 								disabled={processing}
 								placeholder='Confirm password'
 							/>
-							<InputError message={errors.password_confirmation} />
+							<ErrorMessage>{errors.password_confirmation}</ErrorMessage>
 						</Field>
 						<Button
 							type='submit'

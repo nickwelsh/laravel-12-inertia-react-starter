@@ -33,8 +33,6 @@ class HandleInertiaRequests extends Middleware
 	 * Define the props that are shared by default.
 	 *
 	 * @see https://inertiajs.com/shared-data
-	 *
-	 * @return InertiaData
 	 */
 	public function share(Request $request): InertiaData
 	{
@@ -47,7 +45,7 @@ class HandleInertiaRequests extends Middleware
 			'auth' => [
 				'user' => $request->user(),
 			],
-			'ziggy' => fn(): array => [...(new Ziggy())->toArray(), 'location' => $request->url()],
+			'ziggy' => fn (): array => [...(new Ziggy)->toArray(), 'location' => $request->url()],
 		]);
 	}
 }

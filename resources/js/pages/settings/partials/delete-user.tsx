@@ -1,9 +1,8 @@
 import { useForm } from '@inertiajs/react';
 import { type FormEventHandler, useRef, useState } from 'react';
 import { Button } from '@/components/catalyst/button';
-import InputError from '@/components/input-error';
 import { Dialog, DialogActions, DialogBody, DialogDescription, DialogTitle } from '@/components/catalyst/dialog';
-import { Field, FieldGroup, Fieldset, Label } from '@/components/catalyst/fieldset';
+import { ErrorMessage, Field, FieldGroup, Fieldset, Label } from '@/components/catalyst/fieldset';
 import { Input } from '@/components/catalyst/input';
 import { Text } from '@/components/catalyst/text';
 
@@ -98,7 +97,7 @@ export default function DeleteUser() {
 											autoComplete='current-password'
 										/>
 
-										<InputError message={errors.password} />
+										<ErrorMessage>{errors.password}</ErrorMessage>
 									</Field>
 								</FieldGroup>
 							</Fieldset>
