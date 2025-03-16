@@ -159,12 +159,35 @@
       <path value="$PROJECT_DIR$/vendor/phpstan/phpstan" />
       <path value="$PROJECT_DIR$/vendor/phpmyadmin/sql-parser" />
       <path value="$PROJECT_DIR$/vendor/larastan/larastan" />
+      <path value="$PROJECT_DIR$/vendor/revolt/event-loop" />
+      <path value="$PROJECT_DIR$/vendor/daverandom/libdns" />
+      <path value="$PROJECT_DIR$/vendor/amphp/pipeline" />
+      <path value="$PROJECT_DIR$/vendor/amphp/parallel" />
+      <path value="$PROJECT_DIR$/vendor/amphp/parser" />
+      <path value="$PROJECT_DIR$/vendor/amphp/byte-stream" />
+      <path value="$PROJECT_DIR$/vendor/amphp/cache" />
+      <path value="$PROJECT_DIR$/vendor/amphp/serialization" />
+      <path value="$PROJECT_DIR$/vendor/amphp/dns" />
+      <path value="$PROJECT_DIR$/vendor/amphp/socket" />
+      <path value="$PROJECT_DIR$/vendor/amphp/amp" />
+      <path value="$PROJECT_DIR$/vendor/amphp/sync" />
+      <path value="$PROJECT_DIR$/vendor/amphp/process" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection" />
+      <path value="$PROJECT_DIR$/vendor/kelunik/certificate" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-package-tools" />
+      <path value="$PROJECT_DIR$/vendor/spatie/php-structure-discoverer" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-data" />
+      <path value="$PROJECT_DIR$/vendor/spatie/typescript-transformer" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-typescript-transformer" />
+      <path value="$PROJECT_DIR$/vendor/spatie/enum" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-enum" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
   <component name="PhpStan">
     <PhpStan_settings>
       <phpstan_by_interpreter asDefaultInterpreter="true" interpreter_id="f397d2e9-8149-4ce4-acce-009cda8198e8" timeout="60000" />
+      <PhpStanConfiguration tool_path="$PROJECT_DIR$/vendor/bin/phpstan" />
     </PhpStan_settings>
   </component>
   <component name="PhpStanOptionsConfiguration">

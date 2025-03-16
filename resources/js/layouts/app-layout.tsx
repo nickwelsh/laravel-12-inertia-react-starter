@@ -1,16 +1,21 @@
 import { type ReactNode } from 'react';
-import AppLayoutTemplate from '@/layouts/app/app-sidebar-layout';
-import { type BreadcrumbItem } from '@/types';
+import { type BreadcrumbItem, type NavItem } from '@/types';
+import AppStackedLayout from '@/layouts/app/app-stacked-layout';
+
+const navItems = [{ label: 'Dashboard', routeName: 'dashboard', explicit: true }] as const satisfies NavItem[];
 
 type AppLayoutProps = {
-    children: ReactNode;
-    breadcrumbs?: BreadcrumbItem[];
-}
+	children: ReactNode;
+	breadcrumbs?: BreadcrumbItem[];
+};
 
-const AppLayout = ({ children, breadcrumbs, ...props }: AppLayoutProps) => (
-    <AppLayoutTemplate breadcrumbs={breadcrumbs} {...props}>
-        {children}
-    </AppLayoutTemplate>
+const AppLayout = ({ children, ...props }: AppLayoutProps) => (
+	<AppStackedLayout
+		navItems={navItems}
+		{...props}
+	>
+		{children}
+	</AppStackedLayout>
 );
 
-export default AppLayout
+export default AppLayout;

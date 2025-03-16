@@ -5,6 +5,34 @@
 @source "../views";
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 
+/* I should be able to just wildcard: https://github.com/tailwindlabs/tailwindcss/issues/15452 */
+@source '../js/components/catalyst/alert.tsx';
+@source '../js/components/catalyst/avatar.tsx';
+@source '../js/components/catalyst/badge.tsx';
+@source '../js/components/catalyst/button.tsx';
+@source '../js/components/catalyst/checkbox.tsx';
+@source '../js/components/catalyst/description-list.tsx';
+@source '../js/components/catalyst/dialog.tsx';
+@source '../js/components/catalyst/divider.tsx';
+@source '../js/components/catalyst/dropdown.tsx';
+@source '../js/components/catalyst/fieldset.tsx';
+@source '../js/components/catalyst/heading.tsx';
+@source '../js/components/catalyst/input.tsx';
+@source '../js/components/catalyst/link.tsx';
+@source '../js/components/catalyst/listbox.tsx';
+@source '../js/components/catalyst/navbar.tsx';
+@source '../js/components/catalyst/pagination.tsx';
+@source '../js/components/catalyst/radio.tsx';
+@source '../js/components/catalyst/select.tsx';
+@source '../js/components/catalyst/sidebar-layout.tsx';
+@source '../js/components/catalyst/sidebar.tsx';
+@source '../js/components/catalyst/stacked-layout.tsx';
+@source '../js/components/catalyst/switch.tsx';
+@source '../js/components/catalyst/table.tsx';
+@source '../js/components/catalyst/text.tsx';
+@source '../js/components/catalyst/textarea.tsx';
+
+
 @custom-variant dark (&:is(.dark *));
 
 @theme {

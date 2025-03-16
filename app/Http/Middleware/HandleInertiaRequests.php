@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Data\Inertia\InertiaData;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
@@ -33,21 +34,20 @@ class HandleInertiaRequests extends Middleware
 	 *
 	 * @see https://inertiajs.com/shared-data
 	 *
-	 * @return array<string, mixed>
+	 * @return InertiaData
 	 */
-	public function share(Request $request): array
+	public function share(Request $request): InertiaData
 	{
-		/** @phpstan-ignore-next-line */
 		[$message, $author] = str(Inspiring::quotes()->random())->explode('-');
 
-		return [
+		return InertiaData::from([
 			...parent::share($request),
 			'name' => config('app.name'),
 			'quote' => ['message' => trim($message), 'author' => trim($author)],
 			'auth' => [
 				'user' => $request->user(),
 			],
-			'ziggy' => fn (): array => [...(new Ziggy)->toArray(), 'location' => $request->url()],
-		];
+			'ziggy' => fn(): array => [...(new Ziggy())->toArray(), 'location' => $request->url()],
+		]);
 	}
 }

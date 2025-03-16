@@ -1,5 +1,6 @@
-import { Head, Link, usePage } from '@inertiajs/react';
+import { Head, usePage } from '@inertiajs/react';
 import { type SharedData } from '@/types';
+import { Button } from '@/components/catalyst/button';
 
 export default function Welcome() {
 	const { auth } = usePage<SharedData>().props;
@@ -20,26 +21,29 @@ export default function Welcome() {
 				<header className='mb-6 w-full max-w-[335px] text-sm not-has-[nav]:hidden lg:max-w-4xl'>
 					<nav className='flex items-center justify-end gap-4'>
 						{auth.user ? (
-							<Link
+							<Button
 								href={route('dashboard')}
+								outline
 								className='inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]'
 							>
-								Dashboard
-							</Link>
+								<span className='px-2.5 py-0.5 text-sm leading-normal font-thin'>Dashboard</span>
+							</Button>
 						) : (
 							<>
-								<Link
+								<Button
 									href={route('login')}
-									className='inline-block rounded-sm border border-transparent px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#19140035] dark:text-[#EDEDEC] dark:hover:border-[#3E3E3A]'
+									plain
+									className='p-0'
 								>
-									Log in
-								</Link>
-								<Link
+									<span className='px-2.5 py-0.5 text-sm leading-normal font-thin'>Log in</span>
+								</Button>
+								<Button
 									href={route('register')}
+									outline
 									className='inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]'
 								>
-									Register
-								</Link>
+									<span className='px-2.5 py-0.5 text-sm leading-normal font-thin'>Register</span>
+								</Button>
 							</>
 						)}
 					</nav>
@@ -121,14 +125,14 @@ export default function Welcome() {
 							</ul>
 							<ul className='flex gap-3 text-sm leading-normal'>
 								<li>
-									<a
+									<Button
 										href='https://cloud.laravel.com'
 										target='_blank'
-										className='inline-block rounded-sm border border-black bg-[#1b1b18] px-5 py-1.5 text-sm leading-normal text-white hover:border-black hover:bg-black dark:border-[#eeeeec] dark:bg-[#eeeeec] dark:text-[#1C1C1A] dark:hover:border-white dark:hover:bg-white'
+										// className='inline-block rounded-sm border border-black bg-[#1b1b18] px-5 py-1.5 text-sm leading-normal text-white hover:border-black hover:bg-black dark:border-[#eeeeec] dark:bg-[#eeeeec] dark:text-[#1C1C1A] dark:hover:border-white dark:hover:bg-white'
 										rel='noreferrer'
 									>
-										Deploy now
-									</a>
+										<span className='px-3 font-thin'>Deploy now</span>
+									</Button>
 								</li>
 							</ul>
 						</div>
