@@ -1,5 +1,5 @@
 import { Head } from '@inertiajs/react';
-import { type ReactNode, useEffect, useState } from 'react';
+import { type ReactNode } from 'react';
 import { Radio, RadioGroup } from '@headlessui/react';
 import {
 	ComputerDesktopIcon as ComputerDesktopIconOutline,
@@ -16,7 +16,7 @@ import SettingsLayout from '@/layouts/settings/layout';
 import AppLayout from '@/layouts/app-layout';
 import { cn } from '@/lib/utils';
 import { styles as ButtonStyles } from '@/components/catalyst/button';
-import { type AppearanceOption, useAppearance } from '@/hooks/use-appearance';
+import { useAppearance } from '@/hooks/use-appearance';
 
 const modes = [
 	{
@@ -40,16 +40,6 @@ const modes = [
 ];
 function Appearance() {
 	const { appearance, updateAppearance } = useAppearance();
-	const [selected, setSelected] = useState(appearance);
-
-	const changeAppearance = (newAppearance: AppearanceOption) => {
-		updateAppearance(newAppearance);
-		setSelected(newAppearance);
-	};
-
-	useEffect(() => {
-		console.log(appearance);
-	}, [appearance]);
 
 	return (
 		<>
@@ -65,8 +55,8 @@ function Appearance() {
 				<div>
 					<fieldset aria-label='Server size'>
 						<RadioGroup
-							value={selected}
-							onChange={changeAppearance}
+							value={appearance}
+							onChange={updateAppearance}
 							className='space-y-4'
 						>
 							{modes.map(mode => (

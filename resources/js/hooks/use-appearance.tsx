@@ -1,4 +1,7 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect } from 'react';
+import { produce } from 'immer';
+import { createStore } from '@xstate/store';
+import { useSelector } from '@xstate/store/react';
 
 export type AppearanceOption = 'light' | 'dark' | 'system';
 export type Appearance = AppearanceOption | undefined;
@@ -48,11 +51,22 @@ export function initializeTheme() {
 	mediaQuery()?.addEventListener('change', handleSystemThemeChange);
 }
 
+const store = createStore({
+	context: { appearance: 'system' as AppearanceOption },
+	on: {
+		setAppearance: (context, event: { appearance: AppearanceOption }) =>
+			produce(context, draft => {
+				draft.appearance = event.appearance;
+			}),
+	},
+});
+
 export function useAppearance() {
-	const [appearance, setAppearance] = useState<AppearanceOption>('system');
+	// const [appearance, setAppearance] = useState<AppearanceOption>('system');
+	const appearance = useSelector(store, state => state.context.appearance);
 
 	const updateAppearance = useCallback((mode: AppearanceOption) => {
-		setAppearance(mode);
+		store.trigger.setAppearance({ appearance: mode });
 
 		// Store in localStorage for client-side persistence...
 		localStorage.setItem('appearance', mode);

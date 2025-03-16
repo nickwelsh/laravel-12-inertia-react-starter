@@ -2,7 +2,7 @@ export type InertiaAuthData = {
 	user: InertiaUserData | null;
 };
 export type InertiaData = {
-	errors: { [key: string]: string } | null;
+	errors: Record<string, string> | null;
 	name: string;
 	quote: InertiaQuoteData;
 	auth: InertiaAuthData;
