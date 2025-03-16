@@ -7,6 +7,7 @@ import { Button } from '@/components/catalyst/button';
 import { Input } from '@/components/catalyst/input';
 import { ErrorMessage, Field, FieldGroup, Fieldset, Label } from '@/components/catalyst/fieldset';
 import AuthLayout from '@/layouts/auth-layout';
+import { Badge } from '@/components/catalyst/badge';
 
 function ForgotPassword({ status }: { status?: string }) {
 	const { data, setData, post, processing, errors } = useForm<Required<{ email: string }>>({
@@ -23,7 +24,11 @@ function ForgotPassword({ status }: { status?: string }) {
 		<>
 			<Head title='Forgot password' />
 
-			{status && <div className='mb-4 text-center text-sm font-medium text-green-600'>{status}</div>}
+			{status && (
+				<div className='grid w-full place-items-center'>
+					<Badge color='green'>{status}</Badge>
+				</div>
+			)}
 
 			<div className='space-y-6'>
 				<form onSubmit={submit}>

@@ -1,11 +1,9 @@
-import { Head, usePage } from '@inertiajs/react';
+import { Head } from '@inertiajs/react';
 import { type ReactNode } from 'react';
 import { PlaceholderPattern } from '@/components/ui/placeholder-pattern';
 import AppLayout from '@/layouts/app-layout';
 
 function Dashboard() {
-	const props = usePage().props;
-	console.log(props);
 	return (
 		<>
 			<Head title='Dashboard' />

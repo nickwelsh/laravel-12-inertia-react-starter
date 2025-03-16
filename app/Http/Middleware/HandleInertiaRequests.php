@@ -33,19 +33,31 @@ class HandleInertiaRequests extends Middleware
 	 * Define the props that are shared by default.
 	 *
 	 * @see https://inertiajs.com/shared-data
+	 *
+	 * @return array<mixed>
 	 */
-	public function share(Request $request): InertiaData
+	public function share(Request $request): array
 	{
-		[$message, $author] = str(Inspiring::quotes()->random())->explode('-');
+		$quote = Inspiring::quotes()->random();
+		if (! is_string($quote)) {
+			$quote = 'Stay inspired! - Unknown';
+		}
+		[$message, $author] = str($quote)->explode('-');
+
+		assert(is_string($message));
+		assert(is_string($author));
 
 		return InertiaData::from([
 			...parent::share($request),
 			'name' => config('app.name'),
-			'quote' => ['message' => trim($message), 'author' => trim($author)],
+			'quote' => [
+				'message' => trim($message),
+				'author' => trim($author),
+			],
 			'auth' => [
 				'user' => $request->user(),
 			],
 			'ziggy' => fn (): array => [...(new Ziggy)->toArray(), 'location' => $request->url()],
-		]);
+		])->toArray();
 	}
 }

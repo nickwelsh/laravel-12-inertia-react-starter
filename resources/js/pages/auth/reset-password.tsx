@@ -1,11 +1,10 @@
 import { Head, useForm } from '@inertiajs/react';
 import { LoaderCircle } from 'lucide-react';
 import { type FormEventHandler, type ReactNode } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import { Button } from '@/components/catalyst/button';
+import { Input } from '@/components/catalyst/input';
 import AuthLayout from '@/layouts/auth-layout';
-import { ErrorMessage, Field, FieldGroup, Fieldset } from '@/components/catalyst/fieldset';
+import { ErrorMessage, Field, FieldGroup, Fieldset, Label } from '@/components/catalyst/fieldset';
 
 type ResetPasswordProps = {
 	token: string;

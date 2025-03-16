@@ -10,11 +10,6 @@ export type BreadcrumbItem = {
 	href: string;
 };
 
-export type NavGroup = {
-	title: string;
-	items: NavItem[];
-};
-
 export type NavItem = {
 	label: string;
 	routeName: ValidRouteName;

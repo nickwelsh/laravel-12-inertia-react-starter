@@ -14,6 +14,7 @@ class InertiaData extends Data
 	/**
 	 * @var array<string, string> | null
 	 */
+	// @phpstan-ignore-next-line We have to define this "incompatible" type for TypeScript transformer.
 	public AlwaysProp $errors;
 
 	public string $name;

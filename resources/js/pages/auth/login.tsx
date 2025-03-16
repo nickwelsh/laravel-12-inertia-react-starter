@@ -7,6 +7,7 @@ import { Checkbox } from '@/components/catalyst/checkbox';
 import { Input } from '@/components/catalyst/input';
 import { ErrorMessage, Field, FieldGroup, Fieldset, Label } from '@/components/catalyst/fieldset';
 import AuthLayout from '@/layouts/auth-layout';
+import { Badge } from '@/components/catalyst/badge';
 
 type LoginForm = {
 	email: string;
@@ -38,6 +39,12 @@ function Login({ status, canResetPassword }: LoginProps) {
 	return (
 		<>
 			<Head title='Log in' />
+
+			{status && (
+				<div className='grid w-full place-items-center'>
+					<Badge color='green'>{status}</Badge>
+				</div>
+			)}
 
 			<form
 				className='flex flex-col gap-6'
@@ -119,8 +126,6 @@ function Login({ status, canResetPassword }: LoginProps) {
 					</TextLink>
 				</div>
 			</form>
-
-			{status && <div className='mb-4 text-center text-sm font-medium text-green-600'>{status}</div>}
 		</>
 	);
 }

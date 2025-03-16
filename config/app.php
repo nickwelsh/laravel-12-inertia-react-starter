@@ -1,7 +1,6 @@
 <?php
 
 return [
-
 	/*
 	|--------------------------------------------------------------------------
 	| Application Name
@@ -90,7 +89,7 @@ return [
 	|--------------------------------------------------------------------------
 	|
 	| This key is utilized by Laravel's encryption services and should be set
-	| to a random, 32 character string to ensure that all encrypted values
+	| to a random, 32-character string to ensure that all encrypted values
 	| are secure. You should do this prior to deploying the application.
 	|
 	*/
@@ -99,11 +98,7 @@ return [
 
 	'key' => env('APP_KEY'),
 
-	'previous_keys' => [
-		...array_filter(
-			explode(',', env('APP_PREVIOUS_KEYS', ''))
-		),
-	],
+	'previous_keys' => [...array_filter(explode(',', env('APP_PREVIOUS_KEYS', '')))],
 
 	/*
 	|--------------------------------------------------------------------------
@@ -122,5 +117,4 @@ return [
 		'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
 		'store' => env('APP_MAINTENANCE_STORE', 'database'),
 	],
-
 ];

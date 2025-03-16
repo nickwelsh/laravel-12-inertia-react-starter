@@ -1,9 +1,9 @@
-import { Head, usePage } from '@inertiajs/react';
-import { type SharedData } from '@/types';
+import { Head } from '@inertiajs/react';
 import { Button } from '@/components/catalyst/button';
+import { useTypedPage } from '@/hooks/use-typed-page';
 
 export default function Welcome() {
-	const { auth } = usePage<SharedData>().props;
+	const { auth } = useTypedPage().props;
 
 	return (
 		<>

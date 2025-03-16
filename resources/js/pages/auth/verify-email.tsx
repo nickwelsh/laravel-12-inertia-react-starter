@@ -5,6 +5,7 @@ import { type FormEventHandler, type ReactNode } from 'react';
 import TextLink from '@/components/text-link';
 import { Button } from '@/components/catalyst/button';
 import AuthSimpleLayout from '@/layouts/auth/auth-simple-layout';
+import { Badge } from '@/components/catalyst/badge';
 
 function VerifyEmail({ status }: { status?: string }) {
 	const { post, processing } = useForm({});
@@ -20,8 +21,10 @@ function VerifyEmail({ status }: { status?: string }) {
 			<Head title='Email verification' />
 
 			{status === 'verification-link-sent' && (
-				<div className='mb-4 text-center text-sm font-medium text-green-600'>
-					A new verification link has been sent to the email address you provided during registration.
+				<div className='grid w-full place-items-center'>
+					<Badge color='green'>
+						A new verification link has been sent to the email address you provided during registration.
+					</Badge>
 				</div>
 			)}
 
